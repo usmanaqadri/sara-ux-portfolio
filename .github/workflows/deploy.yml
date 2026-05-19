@@ -27,4 +27,4 @@ jobs:
       - run: pnpm build
       - run: git config --global user.name "github-actions[bot]"
       - run: git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - run: pnpm exec gh-pages -d dist
+      - run: pnpm exec gh-pages -d dist -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/usmanaqadri/sara-ux-portfolio.git
