@@ -224,11 +224,6 @@ export default function Home() {
                     alt="Healthy People 2030 homepage with the tagline ‘Building a healthier future for all’"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <div className="bg-background text-foreground px-6 py-3 font-medium text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                      Read Case Study <ExternalLink className="w-4 h-4" />
-                    </div>
-                  </div>
                 </div>
               </motion.div>
               <motion.div variants={FADE_UP} className="md:col-span-5 order-1 md:order-2">
@@ -281,11 +276,6 @@ export default function Home() {
                     alt="Screenshot of the IRS Direct File homepage"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <div className="bg-background text-foreground px-6 py-3 font-medium text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                      Read Case Study <ExternalLink className="w-4 h-4" />
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -305,11 +295,6 @@ export default function Home() {
                     alt="Fors Marsh website navigation menu showing About Us, Our Work, Our Approach, Join Us, Learn, and Serve"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <div className="bg-background text-foreground px-6 py-3 font-medium text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                      Read Case Study <ExternalLink className="w-4 h-4" />
-                    </div>
-                  </div>
                 </div>
               </motion.div>
               <motion.div variants={FADE_UP} className="md:col-span-5 order-1 md:order-2">
