@@ -222,7 +222,7 @@ export default function Home() {
                   <img
                     src={healthyPeople2030}
                     alt="Healthy People 2030 homepage with the tagline ‘Building a healthier future for all’"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
@@ -274,7 +274,7 @@ export default function Home() {
                   <img
                     src={directFileHomepage}
                     alt="Screenshot of the IRS Direct File homepage"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
@@ -293,7 +293,7 @@ export default function Home() {
                   <img
                     src={forsMarshWebsite}
                     alt="Fors Marsh website navigation menu showing About Us, Our Work, Our Approach, Join Us, Learn, and Serve"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
