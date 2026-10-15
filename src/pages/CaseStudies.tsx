@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import directFileHomepage from "@/assets/direct-file-homepage.png";
 import forsMarshWebsite from "@/assets/fors-marsh-website.png";
+import forsMarshImpactEffortMatrix from "@/assets/fors-marsh-impact-effort-matrix.png";
 import healthyPeople2030 from "@/assets/healthy-people-2030.png";
 
 const FADE_UP = {
@@ -26,8 +27,8 @@ type CaseStudy = {
   image?: string;
   imageAlt?: string;
   imageCaption?: string;
-  overview: string;
-  sections: { heading: string; body: string[] }[];
+  overview?: string;
+  sections: { heading: string; body: string[]; image?: string; imageAlt?: string }[];
 };
 
 const CASE_STUDIES: CaseStudy[] = [
@@ -84,24 +85,17 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: "improving-taxpayer-experiences",
     title: "Improving Taxpayer Experiences",
-    client: "Internal Revenue Service, Direct File Pilot",
+    client: "Internal Revenue Service",
     role: "Lead UX Researcher",
     timeline: "2023–2024",
     tags: ["Government", "Accessibility", "Evaluative"],
     image: directFileHomepage,
     imageAlt: "Screenshot of the IRS Direct File homepage",
-    overview:
-      "The IRS launched Direct File, a new e-filing system piloted in 2024 for the 2023 tax season (since discontinued). This project focused on evaluating the experience for Spanish-speaking taxpayers, with the goal of identifying usability issues and improving how complex tax concepts were communicated.",
     sections: [
-      {
-        heading: "My Role",
-        body: [
-          "UX Researcher (Project Lead). I led the study end-to-end, including: research design and planning, moderator coordination (Spanish-speaking), development of materials (moderator guide, mock data, protocols), participant recruitment oversight, and stakeholder communication and delivery of insights."
-        ]
-      },
       {
         heading: "The Problem",
         body: [
+          "The IRS launched Direct File, a new e-filing system piloted in 2024 for the 2023 tax season (since discontinued). This project focused on evaluating the experience for Spanish-speaking taxpayers, with the goal of identifying usability issues and improving how complex tax concepts were communicated.",
           "Filing taxes is already complex, and even more so when interfaces are not fully optimized for non-English users, technical tax language is difficult to understand, and users lack clear guidance or progress visibility.",
           "The IRS needed to ensure that Direct File was accessible, intuitive, and trustworthy for Spanish-speaking users."
         ]
@@ -152,12 +146,6 @@ const CASE_STUDIES: CaseStudy[] = [
       "Executed task-based usability testing on the Fors Marsh website to assess how intuitively visitors could navigate, find information, and complete key actions, identifying usability concerns that informed targeted improvements.",
     sections: [
       {
-        heading: "My Role",
-        body: [
-          "UX Researcher. I led the planning and execution of the study, including defining task scenarios, building the moderator guide, conducting sessions, and synthesizing findings into actionable recommendations."
-        ]
-      },
-      {
         heading: "The Problem",
         body: [
           "The Fors Marsh website is the front door for prospective clients, partners, and talent. Stakeholders wanted to understand how intuitive the experience truly was: whether visitors could quickly orient themselves, find what they came for, and form an accurate impression of the company's work."
@@ -182,9 +170,11 @@ const CASE_STUDIES: CaseStudy[] = [
       {
         heading: "Impact & Recommendations",
         body: [
-          "As a next step, I led a recommendations workshop using an Impact/Effort matrix with the team that built the website, Creative, developers, members of leadership, and marketing experts. It's not ideal to drop a list of usability issues onto people who have worked so hard on a product, so we worked through the recommendations together to gauge feasibility and weigh impact against effort.",
+          "As a next step, I led a recommendations workshop using an Impact/Effort matrix with the team that built the website, developers, members of leadership, and marketing experts. We worked through the recommendations together to gauge feasibility and weigh impact against effort.",
           "The team implemented several of the recommendations directly and committed to keeping the rest in mind as they continue to iterate on the website."
-        ]
+        ],
+        image: forsMarshImpactEffortMatrix,
+        imageAlt: "Recommendations workshop whiteboard with recommendations grouped by page beside an impact and effort matrix"
       },
       {
         heading: "Challenges",
@@ -267,16 +257,24 @@ export default function CaseStudies() {
                 ))}
               </motion.div>
 
-              <motion.h2 variants={FADE_UP} className="text-3xl md:text-4xl font-serif font-medium mb-4">
+              <motion.h2
+                variants={FADE_UP}
+                className={`text-3xl md:text-4xl font-serif font-medium ${cs.id === "improving-taxpayer-experiences" ? "mb-12" : "mb-4"}`}
+              >
                 {cs.title}
               </motion.h2>
 
-              <motion.p variants={FADE_UP} className="text-lg text-muted-foreground leading-relaxed mb-10">
-                {cs.overview}
-              </motion.p>
+              {cs.overview && (
+                <motion.p variants={FADE_UP} className="text-lg text-muted-foreground leading-relaxed mb-10">
+                  {cs.overview}
+                </motion.p>
+              )}
 
               {cs.image && (
-                <motion.figure variants={FADE_UP} className="mb-12">
+                <motion.figure
+                  variants={FADE_UP}
+                  className={`mb-12 ${cs.id === "improving-taxpayer-experiences" ? "mx-auto max-w-2xl" : ""}`}
+                >
                   <div className="overflow-hidden bg-muted border border-black">
                     <img src={cs.image} alt={cs.imageAlt ?? ""} className="w-full h-auto block" />
                   </div>
@@ -321,6 +319,13 @@ export default function CaseStudies() {
                         </p>
                       ))}
                     </div>
+                    {section.image && (
+                      <figure className="mt-8">
+                        <div className="overflow-hidden border border-border bg-muted">
+                          <img src={section.image} alt={section.imageAlt ?? ""} className="block h-auto w-full" />
+                        </div>
+                      </figure>
+                    )}
                   </motion.div>
                 ))}
               </div>

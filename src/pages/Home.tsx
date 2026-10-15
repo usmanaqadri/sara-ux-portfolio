@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import directFileHomepage from "@/assets/direct-file-homepage.png";
 import forsMarshWebsite from "@/assets/fors-marsh-website-home.png";
 import healthyPeople2030 from "@/assets/healthy-people-2030.png";
-import saraPortrait from "@/assets/sara-portrait.jpeg";
+import saraCopenhagen from "@/assets/sara-copenhagen.png";
+import phoneIcon from "@/assets/phone-icon.png";
+import croissantIcon from "@/assets/croissant-icon.png";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -81,14 +83,6 @@ export default function Home() {
           >
             resume
           </a>
-          <button
-            onClick={() => scrollTo("about")}
-            className={`transition-colors hover:text-accent ${
-              activeSection === "about" ? "text-accent" : ""
-            }`}
-          >
-            work with me
-          </button>
         </div>
         {/* Mobile hamburger */}
         <button
@@ -123,63 +117,67 @@ export default function Home() {
           >
             resume
           </a>
-          <button
-            onClick={() => scrollTo("about")}
-            className="text-left hover:text-accent transition-colors"
-          >
-            work with me
-          </button>
         </div>
       )}
 
-      <main className="pt-32 pb-24">
+      <main className="pt-48 pb-10">
         {/* Hero */}
-        <section id="hero" className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto">
+        <section id="hero" className="min-h-[50vh] flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             <motion.div
-              className="md:col-span-8 z-10"
+              className="md:col-span-7 z-10"
               initial="hidden"
               animate="visible"
               variants={STAGGER}
             >
-              <motion.h1
-                variants={FADE_UP}
-                className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium leading-[1.1] tracking-tight mb-8 text-primary"
-              >
-                Turning <span className="text-muted-foreground italic">complexity</span><br /> into clarity.
-              </motion.h1>
-              <motion.p
-                variants={FADE_UP}
-                className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mb-12"
-              >
-                I translate user behavior and complex data into human-centered insights that drive better digital experiences.
-              </motion.p>
-              <motion.div variants={FADE_UP} className="flex flex-wrap gap-4">
-                <button
-                  onClick={() => scrollTo("case-studies")}
-                  className="bg-primary text-primary-foreground px-8 py-4 text-sm font-medium hover:bg-primary/90 transition-colors flex items-center gap-2"
+              <div className="space-y-7 mb-16 font-sans text-lg md:text-xl leading-relaxed text-foreground">
+                <motion.div variants={FADE_UP} className="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_1fr] gap-4 items-center">
+                  <span aria-hidden="true" className="text-3xl md:text-4xl leading-none">👋</span>
+                  <h1 className="font-sans font-normal">Hi, I’m Sara! I’m a UX Researcher based in VA.</h1>
+                </motion.div>
+                <motion.div variants={FADE_UP} className="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_1fr] gap-4 items-start">
+                  <img src={phoneIcon} alt="" aria-hidden="true" className="w-10 h-14 md:w-12 md:h-16 mt-1 object-contain" />
+                  <p>
+                    I’m passionate about translating user behavior and complex data into human-centered insights that drive better and more <span className="font-semibold text-[#754528]">joyful</span> digital experiences.
+                  </p>
+                </motion.div>
+                <motion.div variants={FADE_UP} className="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_1fr] gap-4 items-start">
+                  <img src={croissantIcon} alt="" aria-hidden="true" className="w-10 h-10 md:w-12 md:h-12 mt-1 object-contain" />
+                  <p>I am also a pastry chef, a public health nerd, lover of historical fiction, and a toddler mom!</p>
+                </motion.div>
+              </div>
+              <div id="contact" className="mt-4 mb-24 flex flex-wrap items-center gap-4">
+                <a
+                  href="mailto:sara.mannan5@gmail.com"
+                  className="inline-flex items-center gap-2 text-sm font-medium border-b-2 border-accent pb-1 hover:text-accent transition-colors"
                 >
-                  View Selected Work <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => scrollTo("about")}
-                  className="bg-transparent text-primary border border-border px-8 py-4 text-sm font-medium hover:border-primary transition-colors"
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  Get in touch
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sara-mannan-a13722124/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium bg-[#0A66C2] text-white px-3 py-2 rounded hover:bg-[#004182] transition-colors"
                 >
-                  About Me
-                </button>
-              </motion.div>
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  Let's connect!
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
-              className="md:col-span-4 relative w-2/3 mx-auto md:w-auto md:mx-0"
+              className="md:col-span-5 relative w-2/3 mx-auto md:w-[70%] md:mx-auto md:-translate-x-4 md:translate-y-6"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="aspect-[3/4] overflow-hidden bg-muted border border-black rounded-t-full">
+              <div className="aspect-[0.7] overflow-hidden bg-muted rounded-[2rem]">
                 <img
-                  src={saraPortrait}
-                  alt="Sara Mannan"
+                  src={saraCopenhagen}
+                  alt="Sara smiling beside a canal in Copenhagen"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -188,7 +186,7 @@ export default function Home() {
         </section>
 
         {/* Selected Work */}
-        <section id="case-studies" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <section id="case-studies" className="pt-8 pb-32 px-6 md:px-12 max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -203,9 +201,6 @@ export default function Home() {
               </div>
               <h2 className="text-4xl md:text-5xl font-serif font-medium">Case Studies</h2>
             </div>
-            <p className="text-muted-foreground max-w-md">
-              A selection of foundational research projects that fundamentally shifted product strategy.
-            </p>
           </motion.div>
 
           <div className="space-y-32">
@@ -238,7 +233,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/case-studies#healthy-people-2030"
-                  className="text-primary font-medium inline-flex items-center gap-2 hover:text-accent transition-colors group"
+                  className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-3 font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 group"
                 >
                   View full process <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -264,7 +259,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/case-studies#improving-taxpayer-experiences"
-                  className="text-primary font-medium inline-flex items-center gap-2 hover:text-accent transition-colors group"
+                  className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-3 font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 group"
                 >
                   View full process <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -304,11 +299,11 @@ export default function Home() {
                 </div>
                 <h3 className="text-3xl font-serif font-medium mb-4">Sharpening the Fors Marsh Website</h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Executed task-based usability testing on the Fors Marsh website to evaluate how intuitively visitors could navigate, find information, and complete key actions, surfacing usability concerns that informed targeted improvements to the site experience.
+                  Executed task-based usability testing on the Fors Marsh website to evaluate how intuitively visitors could navigate, find information, and complete key actions, surfacing usability concerns that informed changes to the site experience.
                 </p>
                 <Link
                   href="/case-studies#fors-marsh-website-usability"
-                  className="text-primary font-medium inline-flex items-center gap-2 hover:text-accent transition-colors group"
+                  className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-3 font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 group"
                 >
                   View full process <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -317,54 +312,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About Me */}
-        <section id="about" className="py-32 px-6 md:px-12 border-t border-border">
-          <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={STAGGER}
-              className="space-y-8"
-            >
-              <div>
-                <motion.div variants={FADE_UP} className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-[1px] bg-accent"></div>
-                  <span className="text-accent font-medium tracking-wide uppercase text-sm">About</span>
-                </motion.div>
-                <motion.h2 variants={FADE_UP} className="text-4xl md:text-5xl font-serif font-medium">
-                  Nice to meet you.
-                </motion.h2>
-              </div>
-              <motion.p variants={FADE_UP} className="text-lg text-muted-foreground leading-relaxed">
-                I'm Sara, a UX researcher and strategist with 7+ years of experience helping teams build products people actually want to use. I've worked across public health, government, and digital products, conducting hundreds of user interviews and turning complex behavioral data into clear, actionable insights.
-              </motion.p>
-              <motion.p variants={FADE_UP} className="text-lg text-muted-foreground leading-relaxed">
-                Recently, I graduated from a 6-month pastry program, where I combined a long-standing love of pastry and desserts with a focus on iteration, precision, and craft, an approach I now bring into my research and problem-solving.
-              </motion.p>
-              <motion.div variants={FADE_UP} className="pt-2 flex flex-wrap items-center gap-6">
-                <a
-                  href="mailto:sara.mannan5@gmail.com"
-                  className="inline-flex items-center gap-2 text-base font-medium border-b-2 border-accent pb-1 hover:text-accent transition-colors"
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  Get in touch
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/sara-mannan-a13722124/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-base font-medium bg-[#0A66C2] text-white px-4 py-2 rounded hover:bg-[#004182] transition-colors"
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  Connect with me
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
